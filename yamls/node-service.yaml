@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-service
+spec:
+  selector:
+    app: node
+  ports:
+    # - name: http  # multi ports need specify name of mapping
+    - protocol: TCP
+      port: 8989        # access to pod through this port
+      targetPort: 8080  # container's listen port
+    # - name: http1
+    #   protocol: TCP
+    #   port: 8990
+    #   targetPort: 8080  # may different port

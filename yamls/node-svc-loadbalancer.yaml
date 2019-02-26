@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-loadbalancer
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8989  # service's internal IP
+      targetPort: 8080  # target port of the backing pods
+      # nodePort: 30567 # the service will be accessible through port 50567 of each of your cluster nodes
+  selector:
+    app: node
